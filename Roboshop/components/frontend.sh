@@ -1,7 +1,12 @@
 #!/bin/bash
 
-echo "installing nginx"
-yum install nginx -y &
+source components/common.sh
+rm -f /tmp/Roboshop.log
+
+Head "installing nginx"
+yum install nginx -y &>>/tmp/Roboshop.log
+stat $?
+
 
 
 
