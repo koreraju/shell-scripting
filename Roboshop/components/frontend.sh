@@ -5,7 +5,8 @@ rm -f /tmp/Roboshop.log
 
 HEAD "installing nginx"
 yum install nginx -y &>>/tmp/Roboshop.log
-stat $?
+STAT $?
+
 
 
 
