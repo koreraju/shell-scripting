@@ -5,7 +5,7 @@ frontend:	## Install Frontend Component
 	@sh components/frontend.sh
 
 mongodb:	## Install MongoDB Component
-	@sh components/mangodb.sh
+	@sh components/mongodb.sh
 
 catalogue:	## Install Catalogue Component
 	@sh components/catalogue.sh
