@@ -31,7 +31,7 @@ STAT $?
 
 HEAD "extract download archive"
 cd /tmp
-unzip mongodb.zip &>>/tmp/Roboshop.log
+unzip -o mongodb.zip &>>/tmp/Roboshop.log
 STAT $?
 
 HEAD "load schema"
