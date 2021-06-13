@@ -18,5 +18,12 @@ if  [ "${INSTANCE_STATE}" = "running" ]; then
   echo "instance already exist!!"
   exit 0
 fi
+if [ "$INSTANCE_STATE}" = "stopped" ]; then
+  echo "instance already exist!!"
+  exit 0
+  fi
+
+
+aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${lver} --tag specifications "ResourceType=ins=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq
 
 
