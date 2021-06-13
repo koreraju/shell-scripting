@@ -21,3 +21,7 @@ systemctl enable mongod &>>/tmp/Roboshop.log
 systemctl start mongod &>>/tmp/Roboshop.log
 STAT $?
 
+HEAD "update listen address in config file"
+sed -i -e "s/127.0.0.1/0.0.0.0/" /etc/mongodb.conf
+STAT $?
+
