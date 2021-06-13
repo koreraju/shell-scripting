@@ -13,9 +13,10 @@ LVER=1
 
 ## Validate If Instance is already there
 
-INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Value=components" | jq .Reservations[].Instances[].state.Name | xargs -n1)
+INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=components" | jq .Reservations[].Instances[].state.Name | xargs -n1)
 if  [ "${INSTANCE_STATE}" = "running" ]; then
   echo "instance already exist!!"
   exit 0
 fi
+
 
