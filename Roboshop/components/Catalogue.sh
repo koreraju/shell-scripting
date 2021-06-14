@@ -13,7 +13,7 @@ if [ $? -eq 0 ];then
   echo user is already there, so skipping the user creation &>>/tmp/Roboshop.log
   STAT $?
 else
-useradd Roboshop &>>/tmp/Roboshop.log
+  useradd Roboshop &>>/tmp/Roboshop.log
 STAT $?
 fi
 
