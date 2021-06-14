@@ -20,7 +20,7 @@ cd /home/Roboshop && unzip /tmp/catalogue.zip &>>/tmp/Roboshop.log && mv catalog
 STAT $?
 
 HEAD "install nodejs dependencies"
-cd /home/Roboshop/Catalogue && npm install &>>/tmp/Roboshop.log
+cd /home/Roboshop/Catalogue && npm install --unsafe-perm &>>/tmp/Roboshop.log
 STAT $?
 
 
