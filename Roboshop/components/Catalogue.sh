@@ -33,6 +33,16 @@ HEAD "fix the permission to app content"
 chown Roboshop:Roboshop /home/Roboshop -R
 STAT $?
 
+HEAD "setup systemD servie"
+sed -i -e 's/MONGO_DNSNAME/mongodb.ansible/' /home/Roboshop/Catalogue/systemd.service && mv /home/Roboshop/Catalogue/systemd.service
+  /etc/systemd/system/Catalogue.service
+STAT $?
+
+HEAD "start catalogue service"
+systemctl daemon-reload && systemctl enable Catalogue &>>/tmp/Roboshop.log && systemctl restart Cataloue &>>/tmp/Roboshop.log
+STAT $?
+
+
 
 
 
