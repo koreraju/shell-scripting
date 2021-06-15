@@ -21,7 +21,7 @@ HEAD "download app from github"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>/tmp/Roboshop.log
 STAT $?
 
-HEAD "extract the dowloded archive"
+HEAD "extract the downloded archive"
 cd /home/Roboshop && rm -rf Catalogue && unzip /tmp/catalogue.zip &>>/tmp/Roboshop.log && mv catalogue-main Catalogue
 STAT $?
 
