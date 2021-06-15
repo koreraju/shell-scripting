@@ -34,8 +34,7 @@ chown Roboshop:Roboshop /home/Roboshop -R
 STAT $?
 
 HEAD "setup systemD service"
-sed -i -e 's/MONGO_DNSNAME/mongodb.ansible/' /home/Roboshop/Catalogue/systemd.service && mv /home/Roboshop/Catalogue/systemd.service
-  /etc/systemd/system/Catalogue.service
+sed -i -e 's/MONGO_DNSNAME/mongodb.ansible/' /home/Roboshop/Catalogue/systemd.service && mv /home/Roboshop/Catalogue/systemd.service /etc/systemd/system/Catalogue.service
 STAT $?
 
 HEAD "start catalogue service"
