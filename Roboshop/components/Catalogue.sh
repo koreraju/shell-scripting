@@ -39,7 +39,7 @@ sed -i -e 's/MONGO_DNSNAME/mongodb.ansible/' /home/Roboshop/Catalogue/systemd.se
 STAT $?
 
 HEAD "start catalogue service"
-systemctl daemon-reload && systemctl enable Catalogue &>>/tmp/Roboshop.log && systemctl restart Cataloue &>>/tmp/Roboshop.log
+systemctl daemon-reload && systemctl enable Catalogue &>>/tmp/Roboshop.log && systemctl restart Catalogue &>>/tmp/Roboshop.log
 STAT $?
 
 
