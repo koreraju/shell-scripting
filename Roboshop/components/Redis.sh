@@ -13,11 +13,11 @@ yum install redis -y &>>/tmp/Roboshop.log
 STAT $?
 
 HEAD "update listen address in redis config"
-sed -i -e 's/127.0.0.1/0.0.0.0' /etc/redis/redis.conf
+sed -i -e 's/127.0.0.1/0.0.0.0' /etc/Redis/redis.conf
 STAT $?
 
 HEAD "start redis service"
-systemctl enable redis &>>/tmp/Roboshop.log && systemctl restart redis &>>/tmp/Roboshop.log
+systemctl enable Redis &>>/tmp/Roboshop.log && systemctl restart Redis &>>/tmp/Roboshop.log
 STAT $?
 
 
