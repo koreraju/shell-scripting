@@ -8,3 +8,8 @@ HEAD "setup Redis Repos"
 
 yum install epel-release yum-utils -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y &>>/tmp/Roboshop.log && yum-config-manager --enable remi &>>/tmp/Roboshop.log
 STAT $?
+
+HEAD "install redis"
+yum install Redis -y &>>/tmp/Roboshop.log
+STAT $?
+
