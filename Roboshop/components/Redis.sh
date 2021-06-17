@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source Components/common.sh
+source components/common.sh
 rm -f /tmp/Roboshop.log
 set-hostname Redis
 
