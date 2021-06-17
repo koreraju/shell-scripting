@@ -2,7 +2,7 @@
 
 source Components/common.sh
 rm -f /tmp/Roboshop.log
-set-hostname redis
+set-hostname Redis
 
 HEAD "setup Redis Repos"
 
