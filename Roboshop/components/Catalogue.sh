@@ -2,7 +2,7 @@
 
 source components/common.sh
 rm -f /tmp/Roboshop.log
-
+set-hostname Catalogue
 HEAD "install nodejs"
 yum install nodejs make gcc-c++ -y &>>/tmp/Roboshop.log
 STAT $?

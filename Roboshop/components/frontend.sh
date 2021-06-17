@@ -2,6 +2,7 @@
 
 source components/common.sh
 rm -f /tmp/Roboshop.log
+set-hostname frontend
 
 HEAD "installing nginx"
 yum install nginx -y &>>/tmp/Roboshop.log
