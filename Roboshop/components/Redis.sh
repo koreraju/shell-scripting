@@ -9,8 +9,9 @@ yum install epel-release yum-utils http://rpms.remirepo.net/enterprise/remi-rele
 STAT $?
 
 HEAD "install redis"
-yum install Redis -y &>>/tmp/Roboshop.log
+yum install redis -y &>>/tmp/Roboshop.log
 STAT $?
+
 
 
 
