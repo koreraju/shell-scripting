@@ -62,7 +62,7 @@ NODEJS() {
   DOWNLOAD_FROM_GITHUB $1
 
   HEAD "Install NodeJS Dependencies\t"
-  cd /home/roboshop/$1 && npm install --unsafe-perm &>>/tmp/Roboshop.log
+  cd /home/Roboshop/$1 && npm install --unsafe-perm &>>/tmp/Roboshop.log
   STAT $?
 
   FIX_APP_CONENT_PERM
