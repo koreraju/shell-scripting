@@ -49,7 +49,7 @@ DOWNLOAD_FROM_GITHUB() {
 
 FIX_APP_CONENT_PERM() {
   HEAD "Fix Permissions to App Content"
-  chown Roboshop:Roboshop /home/Roboshop -R
+  chown roboshop:roboshop /home/roboshop -R
   STAT $?
 }
 
