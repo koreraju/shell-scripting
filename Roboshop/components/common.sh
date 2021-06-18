@@ -62,7 +62,7 @@ NODEJS() {
   DOWNLOAD_FROM_GITHUB $1
 
   HEAD "Install NodeJS Dependencies\t"
-  cd /home/Roboshop/$1 && npm install --unsafe-perm &>>/tmp/Roboshop.log
+  cd /home/roboshop/$1 && npm install --unsafe-perm &>>/tmp/Roboshop.log
   STAT $?
 
   FIX_APP_CONENT_PERM
@@ -79,7 +79,7 @@ MAVEN() {
   DOWNLOAD_FROM_GITHUB $1
 
   HEAD "Make Application Package"
-  cd /home/Roboshop/$1 && mvn clean package &>> /tmp/Roboshop.log && mv target/$1-1.0.jar $1.jar  &>>/tmp/Roboshop.log
+  cd /home/roboshop/$1 && mvn clean package &>> /tmp/Roboshop.log && mv target/$1-1.0.jar $1.jar  &>>/tmp/Roboshop.log
   STAT $?
 
   FIX_APP_CONENT_PERM
@@ -103,7 +103,7 @@ PYTHON3() {
   GROUP_ID=$(id -g Roboshop)
 
   HEAD "Update App Configuration"
-  sed -i -e "/uid/ c uid=${USER_ID}" -e "/gid/ c gid=${GROUP_ID}" /home/Roboshop/$1/$1.ini
+  sed -i -e "/uid/ c uid=${USER_ID}" -e "/gid/ c gid=${GROUP_ID}" /home/roboshop/$1/$1.ini
   STAT $?
 
   SETUP_SYSTEMD "$1"
