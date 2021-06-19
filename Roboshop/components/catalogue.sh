@@ -2,9 +2,15 @@
 
 source components/common.sh
 rm -f /tmp/Roboshop.log
-set-hostname user
+set-hostname Catalogue
 
-NODEJS "user"
+NODEJS "Catalogue"
+
+
+
+
+
+
 
 
 

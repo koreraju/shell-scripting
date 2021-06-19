@@ -7,8 +7,8 @@ frontend:	## Install Frontend Component
 mongodb:	## Install MongoDB Component
 	@sh components/mongodb.sh
 
-Catalogue:	## Install Catalogue Component
-	@sh components/Catalogue.sh
+catalogue:	## Install Catalogue Component
+	@sh components/catalogue.sh
 
 Redis:		## Install Redis Component
 	@sh components/Redis.sh
