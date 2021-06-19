@@ -2,9 +2,9 @@
 
 source components/common.sh
 rm -f /tmp/Roboshop.log
-set-hostname Catalogue
+set-hostname catalogue
 
-NODEJS "Catalogue"
+NODEJS "catalogue"
 
 
 
