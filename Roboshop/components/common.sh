@@ -28,37 +28,44 @@ STAT $?
 fi
 }
 
+SETUP_SYSTEMD() {
+  HEAD "setup systemD service"
+  sed -i -e 's/MONGO_DNSNAME/mongodb.ansible/' -e 's/REDIS_ENDPOINT/redis.ansible/' -e 'MONGO_ENDPOINT/mongodb.ansible/'/home/Roboshop/$1/systemd.service && mv /home/Roboshop/$1/systemd.service /etc/systemd/system/$1.service
+  STAT $?
+
+  HEAD "start $1 service"
+  systemctl daemon-reload && systemctl enable $1 &>>/tmp/Roboshop.log && systemctl restart $1 &>>/tmp/Roboshop.log
+  STAT $?
+}
+
 NODEJS() {
   HEAD "install nodejs"
-yum install nodejs make gcc-c++ -y &>>/tmp/Roboshop.log
-STAT $?
+  yum install nodejs make gcc-c++ -y &>>/tmp/Roboshop.log
+  STAT $?
 
-APP_USER_ADD
+  APP_USER_ADD
 
-HEAD "download app from github"
-curl -s -L -o /tmp/$1.zip "https://github.com/roboshop-devops-project/$1/archive/main.zip" &>>/tmp/Roboshop.log
-STAT $?
+  HEAD "download app from github"
+  curl -s -L -o /tmp/$1.zip "https://github.com/roboshop-devops-project/$1/archive/main.zip" &>>/tmp/Roboshop.log
+  STAT $?
 
-HEAD "extract the downloded archive"
-cd /home/Roboshop && rm -rf $1 && unzip /tmp/$1.zip &>>/tmp/Roboshop.log && mv $1-main $1
-STAT $?
+  HEAD "extract the downloded archive"
+  cd /home/Roboshop && rm -rf $1 && unzip /tmp/$1.zip &>>/tmp/Roboshop.log && mv $1-main $1
+  STAT $?
 
-HEAD "install nodejs dependencies"
-cd /home/Roboshop/$1 && npm install --unsafe-perm &>>/tmp/Roboshop.log
-STAT $?
+  HEAD "install nodejs dependencies"
+  cd /home/Roboshop/$1 && npm install --unsafe-perm &>>/tmp/Roboshop.log
+  STAT $?
 
-HEAD "fix the permission to app content"
-chown Roboshop:Roboshop /home/Roboshop -R
-STAT $?
+  HEAD "fix the permission to app content"
+  chown Roboshop:Roboshop /home/Roboshop -R
+  STAT $?
 
-HEAD "setup systemD service"
-sed -i -e 's/MONGO_DNSNAME/mongodb.ansible/' /home/Roboshop/$1/systemd.service && mv /home/Roboshop/$1/systemd.service /etc/systemd/system/$1.service
-STAT $?
-
-HEAD "start $1 service"
-systemctl daemon-reload && systemctl enable $1 &>>/tmp/Roboshop.log && systemctl restart $1 &>>/tmp/Roboshop.log
-STAT $?
+SETUP_SYSTEMD "$1"
 }
+
+
+
 
 
 
