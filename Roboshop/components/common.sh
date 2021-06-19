@@ -30,7 +30,7 @@ fi
 
 SETUP_SYSTEMD() {
   HEAD "setup systemD service"
-  sed -i -e 's/MONGO_DNSNAME/mongodb.ansible/' -e 's/REDIS_ENDPOINT/redis.ansible/' -e 'MONGO_ENDPOINT/mongodb.ansible/'/home/Roboshop/$1/systemd.service && mv /home/Roboshop/$1/systemd.service /etc/systemd/system/$1.service
+  sed -i -e 's/MONGO_DNSNAME/mongodb.ansible/' -e 's/REDIS_ENDPOINT/redis.ansible/' -e 'MONGO_ENDPOINT/mongodb.ansible/' /home/Roboshop/$1/systemd.service && mv /home/Roboshop/$1/systemd.service /etc/systemd/system/$1.service
   STAT $?
 
   HEAD "start $1 service"
